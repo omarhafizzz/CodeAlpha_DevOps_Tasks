@@ -1,5 +1,4 @@
 pipeline {
-    // هنا بنربط تاسك 3 بتاسك 2 (بنشغل الشغل على الكالي)
     agent {
         label 'linux-agent'
     }
@@ -14,10 +13,9 @@ pipeline {
         
         stage('Build Java App') {
             steps {
-                // بندخل جوه الفولدر اللي عملناه عشان نلاقي الجرادل
                 dir('Task3_Java_Gradle') {
                     echo 'Building Java App with Gradle...'
-                    sh 'gradle clean build -x test'
+                    sh 'bash -lc "gradle clean build -x test"'
                 }
             }
         }
@@ -26,7 +24,7 @@ pipeline {
             steps {
                 dir('Task3_Java_Gradle') {
                     echo 'Running JUnit Tests...'
-                    sh 'gradle test'
+                    sh 'bash -lc "gradle test"'
                 }
             }
         }
@@ -35,7 +33,7 @@ pipeline {
             steps {
                 dir('Task3_Java_Gradle') {
                     echo 'Executing the Application...'
-                    sh 'gradle run'
+                    sh 'bash -lc "gradle run"'
                 }
             }
         }
