@@ -24,3 +24,22 @@ I have successfully connected the agent. Please check the uploaded screenshots i
 1. The remote node successfully connected and online.
 2. The specific Node Isolation label configuration.
 3. The connection logs confirming SSH authentication.
+
+## ✅ TASK 3: Java Application using Gradle (Completed)
+
+**Objective:** Automate Java project builds using Gradle, manage dependencies, and integrate CI/CD pipelines for continuous delivery.
+
+### 🛠️ Implementation Details:
+- **Application:** Created a custom Java application.
+- **Build Tool:** Configured **Gradle** (`build.gradle`) to manage dependencies (JUnit) and automate the build process.
+- **CI/CD Pipeline:** Developed a declarative `Jenkinsfile` to orchestrate the entire workflow.
+- **Integration with Task 2:** Successfully linked the pipeline to execute exclusively on the remote Kali agent using the `label 'linux-agent'` directive.
+
+### 🔄 Pipeline Stages Executed:
+1. **Checkout Code:** SCM pulled the source code from this GitHub repository.
+2. **Provisioning:** Automated the download and setup of the Gradle tool directly within the workspace.
+3. **Build:** Compiled the Java code using `gradle build`.
+4. **Test & Run:** Executed tests and ran the compiled application, successfully outputting the application logs to the Jenkins console.
+
+### 📸 Proof of Completion:
+The complete source code is available in the `Task3_Java_Gradle` directory of this repository. Please check the uploaded screenshots demonstrating the successful Jenkins pipeline execution and console output.
