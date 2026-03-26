@@ -11,29 +11,35 @@ pipeline {
             }
         }
         
+        // دي المرحلة السحرية اللي هتحل المشكلة من جذورها
+        stage('Download Gradle') {
+            steps {
+                dir('Task3_Java_Gradle') {
+                    echo 'Downloading Gradle directly to the workspace...'
+                    sh '''
+                    wget -q -nc https://services.gradle.org/distributions/gradle-8.5-bin.zip || true
+                    unzip -q -o gradle-8.5-bin.zip
+                    '''
+                }
+            }
+        }
+        
         stage('Build Java App') {
             steps {
                 dir('Task3_Java_Gradle') {
-                    echo 'Building Java App with Gradle...'
-                    sh 'bash -lc "gradle clean build -x test"'
+                    echo 'Building Java App...'
+                    // هنا بنستخدم الأداة اللي لسه محملينها حالا
+                    sh './gradle-8.5/bin/gradle clean build -x test'
                 }
             }
         }
         
-        stage('Test App') {
+        stage('Test & Run App') {
             steps {
                 dir('Task3_Java_Gradle') {
-                    echo 'Running JUnit Tests...'
-                    sh 'bash -lc "gradle test"'
-                }
-            }
-        }
-        
-        stage('Run App') {
-            steps {
-                dir('Task3_Java_Gradle') {
-                    echo 'Executing the Application...'
-                    sh 'bash -lc "gradle run"'
+                    echo 'Running Tests and executing...'
+                    sh './gradle-8.5/bin/gradle test'
+                    sh './gradle-8.5/bin/gradle run'
                 }
             }
         }
