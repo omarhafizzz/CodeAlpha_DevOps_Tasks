@@ -43,3 +43,18 @@ I have successfully connected the agent. Please check the uploaded screenshots i
 
 ### 📸 Proof of Completion:
 The complete source code is available in the `Task3_Java_Gradle` directory of this repository. Please check the uploaded screenshots demonstrating the successful Jenkins pipeline execution and console output.
+
+## ✅ TASK 4: Web Server using Docker (Completed)
+
+**Objective:** Learn Docker containerization basics, deploy and manage a web server inside Docker containers, and understand container lifecycle commands.
+
+### 🛠️ Implementation Details:
+- **Containerization:** Created a custom `Dockerfile` using `nginx:alpine` as the base image for a lightweight, secure web server.
+- **Deployment:** Deployed a custom HTML page into the Nginx default hosting directory.
+- **Lifecycle Commands:** 
+  - Used `docker build -t` to create the custom image.
+  - Used `docker run -d -p 9090:80` to start the container in detached mode and map the host port to the container port.
+- **Monitoring & Troubleshooting:** Utilized `docker ps` and `docker stats` to monitor container health, verify uptime, and ensure optimal resource usage.
+
+### 📸 Proof of Completion:
+The `Dockerfile` and `index.html` source code are located in the `Task4_Docker` directory of this repository. Uploaded screenshots demonstrate the running container (`docker ps` output) and the successfully accessed web page via the browser on port 9090.
